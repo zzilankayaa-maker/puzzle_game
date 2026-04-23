@@ -106,7 +106,6 @@ void tahtayi_yazdir() {
     printf("Hamle: %d\n", hamle_sayisi);
     printf("Kalan Uzaklik (Manhattan): %d\n\n", manhattan_hesapla());
 
-    // 🔥 GÜZEL TAHTA ÇİZİMİ (senin eski format korunarak)
     for(int i = 0; i < 3; i++) {
         printf("+----+----+----+\n");
         for(int j = 0; j < 3; j++) {
@@ -228,7 +227,7 @@ void karistir() { //oyun başlamadan puzzle karıştırılır
     char y[4]={'w','s','a','d'};
     int s=0;
 
-    while(s<100) {
+    while(s<20) {
         if(hareket_et(y[rand()%4])) s++;
     }
 
