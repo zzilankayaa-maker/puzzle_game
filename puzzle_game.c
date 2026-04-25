@@ -246,6 +246,7 @@ int main() {
         }
 
         scanf(" %c",&g);
+        while (getchar() != '\n'); //fazla girilen karakteri siler
 
         if(g=='q'||g=='Q') break;
         else if(g=='h'||g=='H') {
