@@ -38,7 +38,7 @@ return son;
 }
 
 
-void oyun(int acilacak)//oyunun 
+void oyun(int acilacak)//oyunun ana kısmı bu ilk for sayıyı yan yana kaydettiğimiz için onu tekrar açıyor(burayı tahminen ibrahim anlatır karıştırma kısmına dahil sayılır)
 {
     int islevsel2[3][3];
     int a=100000000;
@@ -53,19 +53,19 @@ void oyun(int acilacak)//oyunun
     } 
    }
 
-char girdi;
-int takip1=2;
+char girdi;//burası ana başlangıç burada tanımlamalar yapılıyor
+int takip1=2;//takip yıldızın nerede olduğunu gösteriyor 2 tane var çünkü 2 boyutlu dizi
 int takip2=2;
 int gecici;
 int takipTut1;
 int takipTut2;
 int hata=0;
 
-printf("\n\nOyun basladi *'i hareket ettirmek icin w,a,s,d tuslarini kullanabilrisiniz.\nBaslamak entere basin\n\n");
-scanf("%c");
-system("cls");
+printf("\n\nOyun basladi *'i hareket ettirmek icin w,a,s,d tuslarini kullanabilrisiniz.\nBaslamak entere basin\n\n");//baslangıç mesajı
+scanf("%c");// enter tuşuna basılana kadar oyunu anlık bekletiyor
+system("cls");//ekranı temizliyor
 printf("\n\n");
-for(int i=0;i<3;i++)
+for(int i=0;i<3;i++)//ekrana oyun alanını 3 e 3 yazdırıyor
     {
      for(int j=0;j<3;j++)
         {
@@ -75,16 +75,13 @@ for(int i=0;i<3;i++)
             printf("[*] ");
         }
         printf("\n");       
-    }
+    }//alttaki while oyun doğru şekle geldimi diye kontrol ediyor doğru durumda değilse whileye giriyor
    while(!(islevsel2[0][0]==1 && islevsel2[0][1]==2 && islevsel2[0][2]==3 && islevsel2[1][0]==4 && islevsel2[1][1]==5 && islevsel2[1][2]==6 && islevsel2[2][0]==7 && islevsel2[2][1]==8))
    {
         
-        scanf(" %c",&girdi);
-        takipTut1=takip1;
-        takipTut2=takip2;
-
-
-        if(girdi =='w'&&takip1-1<3&&takip1-1>=0&&takip2<3&&takip2>=0)
+        scanf(" %c",&girdi);//oyuncudan giridi alıyor
+        
+        if(girdi =='w'&&takip1-1<3&&takip1-1>=0&&takip2<3&&takip2>=0)//bu if else iflerin tamamı giridinin ne olduğunu anlamak için eğer geçersiz hamle yaparsa else e giriyor
         {
             takip1-=1;
             gecici=islevsel2[takip1+1][takip2];
@@ -116,18 +113,18 @@ for(int i=0;i<3;i++)
             islevsel2[takip1][takip2]=gecici;
             
         }
-        else
+        else//daha sonra hata mesajı verebilmesi için bir değişkeni bire eşitliyor
         hata=1;
 
-        system("cls");
+        system("cls");//ekranı temizler
 
-        if(hata)
+        if(hata)//yukarda eğer hata 1 oldu ise hata mesajı veriyor bunu burada yapmamızın sebebi üsste tüm herşey temizlensede hata mesajının bir süre daha kalması
         printf("yanlis hamle farkli bir girdi giriniz\n\n");
  
         else
         printf("\n\n");
 
-        for(int i=0;i<3;i++)
+        for(int i=0;i<3;i++)//tekrar ekrana oyunun hamle yaplmış yeni kısmını yazdırıyor
         {
             for(int j=0;j<3;j++)
                 {
